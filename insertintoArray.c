@@ -37,13 +37,33 @@ void Insert(struct Array *arr,int index,int x)  //address of array is taken when
     
 
 }
+
+int Delete(struct Array *arr,int index)  
+{
+   
+    int x=0;
+    int i;
+    if(index>=0 && index <arr->length)
+    {
+        x=arr->A[index];
+        for(i=index;i<arr->length-1;i++){
+            arr->A[i]=arr->A[i+1];
+        }
+        arr->length--;
+        return x;
+    }
+
+    return 0;
+
+}
+
 int main(){
 
     struct Array arr={{2,3,4,5,6},10,5};  //10 is size and 5 is length
 
     //Append(&arr,10);
-
-    Insert(&arr,0,69);
+    printf("%d\n",Delete(&arr,4));
+    // Insert(&arr,0,69);
     Display(arr);
 
 
