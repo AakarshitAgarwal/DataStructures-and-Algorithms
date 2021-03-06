@@ -61,7 +61,7 @@ void Rearrange(struct Array *arr){
 int main(){
 
     struct  Array arr={{-2,3,-4,25,10,-5},10,6};
-    Rearrange(&arr);
+    // Rearrange(&arr);
     // printf("%d \n",isSorted(arr));
     // InsertSort(&arr,6);
     Display(arr);
