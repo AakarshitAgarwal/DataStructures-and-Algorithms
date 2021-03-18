@@ -3,7 +3,8 @@
 
 struct Array{
 
-    int A[10];
+    // int A[10];  //constant size
+    int *A;        //For Menu-driven
     int size;
     int length;
 };
