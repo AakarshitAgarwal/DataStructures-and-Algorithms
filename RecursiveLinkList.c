@@ -28,12 +28,19 @@ void create(int A[],int n)          //n is number of elements in array
     
 }
 
-void Display(struct Node *p){
+// void Display(struct Node *p){
 
-    while(p!=NULL)   //we don't know how many node & NULL=0
-    {
-        printf("%d ",p->data);
-        p=p->next;
+//     while(p!=NULL)   //we don't know how many node & NULL=0
+//     {
+//         printf("%d ",p->data);
+//         p=p->next;
+//     }
+// }
+
+void RDisplay(struct Node *p){
+    if(p!=NULL){
+        printf("%d ", p->data);
+        RDisplay(p->next);
     }
 }
 
@@ -41,7 +48,9 @@ int main(){
     int A[]={3,5,7,10,15};
     create(A,5);
 
-    Display(first);   //PASSING FIRST POINTER
+    // Display(first);   //PASSING FIRST POINTER
+
+    RDisplay(first);
 
     return 0;
 }
