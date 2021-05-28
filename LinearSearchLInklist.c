@@ -37,69 +37,38 @@ void Display(struct Node *p){
     }
 }
 
-void RDisplay(struct Node *p){
-    if(p!=NULL){
-        printf("%d ", p->data);
-        RDisplay(p->next);
-    }
-}
-
-int count(struct Node *p){
-    int l=0;
-    while (p)
-    {
-        l++;
-        p=p->next;
-    }
-    return l;
-}
-
-
-int Rcount(struct Node *p)  //Recursive count
-{
-if(p!=NULL)
-     return Rcount(p->next)+1;
-else
-    return 0;
-}
-
-int Sum(struct Node *p)   //sum of all elements in linklist
-{
-    int s=0;
-
+//Linear Search in LinkList
+struct Node * LSearch(struct Node *p,int key){
+    struct Node *q;
     while(p!=NULL){
-        s+=p->data;
-        p=p->next;
-    }
-    return s;
-}
-
-int Max(struct Node *p)  //Maximum array in Linklist
-{
-    int m=-32768;
-    while(p){
-        if(p->data>m){
-            m=p->data;
-            p=p->next;
+        if(key==p->data){
+            q->next=p->next;
+            p->next=first;
+            first=p;
+            return p;
         }
+        q=p;
+        p=p->next;
+        return NULL;
     }
-    return(m);
 }
-
-
 
 int main(){
     struct Node *temp;   //since LFunct is returning node
     int A[]={3,5,7,10,15};
     create(A,5);
 
-    // Display(first);   //PASSING FIRST POINTER
 
-    // RDisplay(first);
-    // printf("Length is %d\n\n",count(first));
-    // printf("Length is %d\n\n",Rcount(first));
-    // // printf("Sum of Linklist data is %d\n\n",Sum(first));
-    // printf("Maximum element in the array is %d\n\n",Max(first));
- 
+    temp=LSearch(first,10);
+    if(temp){
+        printf("Key is found %d\n",temp->data);
+        
+    }
+    else{
+     printf("Key is not found\n");    
+    }
+
+    Display(first);    
+        
     return 0;
 }
