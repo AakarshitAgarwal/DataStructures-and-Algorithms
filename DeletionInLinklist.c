@@ -28,6 +28,7 @@ void create(int A[],int n)          //n is number of elements in array
     
 }
 
+//Display the linklist
 void Display(struct Node *p){
 
     while(p!=NULL)   //we don't know how many node & NULL=0
@@ -47,62 +48,35 @@ int count(struct Node *p){
     return l;
 }
 
-//Insertion in the LinkList
-void Insert(struct Node *p,int index,int x){
-    
-    struct Node *t;  //temporary pointer 
-    int i;
-    if(index < 0 || index > count(p))
-    return;
-    t=(struct Node *)malloc(sizeof(struct Node));  //new node
-    t->data=x;
+//Deletion in LinkList
+int Delete(struct Node *p,int index){
+    struct Node *q;
+    int x=-1,i;
 
-
-//Insertion at first node
-    if(index ==0){
-        t->next=first;
-        first=t;
+    if(index <1 || index >count(p)){
+        return -1;  //nothing returned
+    }
+    if(index==1)
+    {
+        q=first;
+        x=first->data;
+        first=first->next;
+        free(q);     //delete is used in c++ while free is used in c
+        return x;
     }
     else
     {
-        for(i=0;i<index-1;i++)
-        p=p->next;
-        t->next=p->next;
-        p->next=t;
-    }
-    
-}
+        for(i=0;i<index-1;i++){
 
-//Insertion in a sorted List
-void SortedInsert(struct Node *p,int x)
-{
-    struct Node *t,*q=NULL;   //q is a taling pointer
-    t=(struct Node*)malloc(sizeof(struct Node));
-    t->data=x;
-    t->next=NULL;
-
-    if(first==NULL)   //if first node is NULL
-        first=t;
-    else
-        {
-        while (p && p->data<x)     //reaching position
-        {
             q=p;
             p=p->next;
         }
-        if(p==first)    // 1)if p is the first node
-        {
-            t->next=first;
-            first=t;
-        }
-        else      //2)if p is between nodes
-        {
-            t->next=q->next;
-            q->next=t;
-        }
-        
-        }
-        
+        q->next=p->next;
+        x=p->data;
+        free(p);
+        return x;
+    }
+    
 }
 
 
@@ -110,9 +84,9 @@ int main(){
     // struct Node *temp;   //since LFunct is returning node
     int A[]={3,5,7,10,15};
     create(A,5);
-    // Insert(first,5,10);
-    SortedInsert(first,6);
 
+    printf("Deleted Element is %d\n",Delete(first,1));
+    
     Display(first);    
     printf("\n\n");
         
