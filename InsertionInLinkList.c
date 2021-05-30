@@ -23,7 +23,7 @@ void create(int A[],int n)          //n is number of elements in array
         t->data=A[i];
         t->next=NULL;
         last->next=t;  
-        last=t;   //last become the new node
+        last=t;   //t become the new node
     }
     
 }
