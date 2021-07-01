@@ -2,6 +2,6 @@
     "C_Cpp.errorSquiggles": "Disabled",
     "java.project.sourcePaths": [
         "LinkList/Java",
-        "Stack"
+        "Queue"
     ]
 }

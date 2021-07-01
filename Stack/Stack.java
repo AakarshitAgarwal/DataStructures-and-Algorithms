@@ -5,7 +5,8 @@ public class Stack {
     int stack[] =new int[5];
     int top=0;
 
-    public void push(int data){ 
+    public void push(int data)
+    { 
         if(top==stack.length){
             System.out.println("Stack is full");
         }
