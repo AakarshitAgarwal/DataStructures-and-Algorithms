@@ -1,7 +1,8 @@
 {
     "C_Cpp.errorSquiggles": "Disabled",
     "java.project.sourcePaths": [
+        "Queue",
         "LinkList/Java",
-        "Queue"
+        "Tree/BinaryTree"
     ]
 }
