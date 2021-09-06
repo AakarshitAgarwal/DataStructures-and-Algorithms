@@ -3,18 +3,23 @@ class Solution {
     Map<String,Integer> map;
     List<String> list;
     List<String> res;
-    List dupSub(Node root) {
+    List<String> temp; 
+    int dupSub(Node root) {
         // code here 
         map=new HashMap<>();
         list=new ArrayList<>();
         res=new ArrayList<>();
+        temp=new ArrayList<>();
+        //String[] output=new String[];
         duplicates(root);
         for(String i : list){
-            if(i.length()>5){
-                res.add(i);
+            String[] parts=i.split("-");
+            if(parts.length>3){
+                temp=Arrays.asList(parts);
+                res.add(temp.toString());
             }
         }
-        return res;
+        return res.size();
         //return list;
     }
 
