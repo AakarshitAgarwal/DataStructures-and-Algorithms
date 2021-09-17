@@ -19,6 +19,8 @@ class Solution
             
         }
         
+
+        //https://www.youtube.com/watch?v=uU69oIguTN0
         //2nd Solution
 
 
@@ -52,6 +54,18 @@ class Solution
     //     }
     // }
     
+
+        //this conditon will not work for 
+        //5
+        //7 58 36 34 16
+        //1
+        
+        // while(slow.next!=temp.next){
+        //     temp=temp.next;
+        //     slow=slow.next;
+        // }
+        // slow.next=null;
+
     
     }    
 }
