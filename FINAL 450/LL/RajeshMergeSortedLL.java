@@ -38,20 +38,27 @@ class Solution
                 prev.next=two;
                 two=two.next;
             }
+            prev=prev.next;
         }
         
-        while(one!=null){
-            // res.addLast(one.data);
-            prev.next=one;
-            one=one.next;
-        }
+
+        //because of this logic 1,2,3,4,5 --> 3 id not printing in the list
+
+        // while(one!=null){
+        //     // res.addLast(one.data);
+        //     prev.next=one;
+        //     one=one.next;
+        // }
         
-        while(two!=null){
-            // res.addLast(two.data);
-            prev.next=two;
-            two=two.next;
-        }
-        return dummy;
+        // while(two!=null){
+        //     // res.addLast(two.data);
+        //     prev.next=two;
+        //     two=two.next;
+        // }
+        
+        prev.next=one!=null?one:two;
+        
+        return dummy.next;
     }
     
     static Node mergeSort(Node head)
